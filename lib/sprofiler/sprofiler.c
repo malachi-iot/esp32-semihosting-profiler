@@ -253,7 +253,7 @@ void sprofiler_initialize(uint32_t samples_per_second)
     // initialize task to flush profiling data out and flush on each write
     ESP_LOGI(TAG, "Initializing SProfiler...");
 
-#if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(5, 0, 0)
+#if (ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(5, 0, 0)) || (ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(4, 4, 4))
     esp_err_t ret = esp_vfs_semihost_register("/host");
 #else
     esp_err_t ret = esp_vfs_semihost_register("/host", NULL);
